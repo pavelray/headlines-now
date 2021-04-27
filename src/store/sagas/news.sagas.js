@@ -4,9 +4,9 @@ import { NEWS_API_KEY } from "../../utility/constants";
 import { getNewsSuccess } from "../actions/news.actions";
 import NewsActions from "../types/news.types";
 
-export function* getNewsByCountry({payload}) {
+export function* getNewsByCountry({payload: {countryCode, pageNumber}}) {
   try {
-    const params = `?country=${payload}&apiKey=${NEWS_API_KEY}`;
+    const params = `?country=${countryCode}&page=${pageNumber}&apiKey=${NEWS_API_KEY}`;
     const response = yield newsApi.get(`/top-headlines${params}`);
     if (response?.data) {
       yield put(getNewsSuccess(response.data));

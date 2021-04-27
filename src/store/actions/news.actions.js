@@ -1,8 +1,8 @@
 import NewsActions from "../types/news.types";
 
-export const getNewsByCountry = (countryCode) =>({
+export const getNewsByCountry = (countryCode, pageNumber = 1) =>({
     type: NewsActions.GET_NEWS_BY_COUNTRY,
-    payload: countryCode
+    payload: {countryCode,pageNumber}
 });
 
 export const getNewsSuccess = (news) =>({

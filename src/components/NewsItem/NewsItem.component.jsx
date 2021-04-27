@@ -2,10 +2,11 @@ import React from "react";
 import { Icon, Item } from "semantic-ui-react";
 import { StyledItem } from "./NewsItem.styles";
 
-const NewsItem = ({ article }) => {
+const NewsItem = ({ article, lastNewsElementRef }) => {
   const publishDate = new Date(article.publishedAt).toDateString();
   return (
-    <StyledItem>
+    <StyledItem >
+      <div ref={lastNewsElementRef}></div>
       <Item.Image size="tiny" src={`${article.urlToImage}`} />
       <Item.Content>
         <Item.Header>
